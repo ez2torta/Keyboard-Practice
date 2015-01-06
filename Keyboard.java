@@ -9,7 +9,7 @@ import java.util.Random;
 // Porfavor Utilizar la configuración en reclado que viene abajo (es fácil de leer :s)
 
 // Importante: Una vez que Kim cambie de lado, es necesario resetear el practice, recomiendo utilizar el botón select para Reiniciar : )
-
+// Usted tiene 2 segundos para cambiar la ventana de Java al KOF13SE previamente configurado (Practice, Dummy Player, etc)
 
 // Cualquier consulta, INBOCS (@Tortiiilla)
 
@@ -102,6 +102,36 @@ public static void Dash_Agarre() throws InterruptedException, AWTException{
 	TimeUnit.MILLISECONDS.sleep(Frames_Milli(13));
 }
 
+public static void Dash_Feint() throws InterruptedException, AWTException{
+	Robot r = new Robot();
+	//dash
+	r.keyPress(Right);
+	TimeUnit.MILLISECONDS.sleep(Frames_Milli(2));
+	r.keyRelease(Right);
+	TimeUnit.MILLISECONDS.sleep(Frames_Milli(2));
+	r.keyPress(Right);
+	TimeUnit.MILLISECONDS.sleep(Frames_Milli(35));
+	r.keyRelease(Right);
+	//agarre?
+	TimeUnit.MILLISECONDS.sleep(Frames_Milli(2));
+	r.keyPress(Down);
+	r.keyPress(Button_B);
+	TimeUnit.MILLISECONDS.sleep(Frames_Milli(13));
+	r.keyRelease(Down);
+	r.keyRelease(Button_B);
+	TimeUnit.MILLISECONDS.sleep(Frames_Milli(2));
+	r.keyPress(Down);
+	r.keyPress(Button_B);
+	TimeUnit.MILLISECONDS.sleep(Frames_Milli(13));
+	r.keyRelease(Down);
+	r.keyRelease(Button_B);
+	TimeUnit.MILLISECONDS.sleep(Frames_Milli(2));
+	r.keyPress(Button_B);
+	TimeUnit.MILLISECONDS.sleep(Frames_Milli(13));
+	r.keyRelease(Button_B);
+	TimeUnit.MILLISECONDS.sleep(Frames_Milli(2));
+}
+
 public static void Walk_Agarre() throws InterruptedException, AWTException{
 	Robot r = new Robot();
 	//dash
@@ -173,7 +203,7 @@ static public void main(String args[]) throws AWTException, InterruptedException
 	    Walk(60);
 		Random randomGenerator = new Random();
 		while(true){
-		      int randomInt = randomGenerator.nextInt(9);
+		      int randomInt = randomGenerator.nextInt(10);
 		      switch(randomInt){
 			      case 0: Overhead(); break;
 			      case 1: Walk(15);	break;
@@ -184,6 +214,7 @@ static public void main(String args[]) throws AWTException, InterruptedException
 			      case 6: Far_D_String(); break;
 			      case 7: EX_Mamil(); break;
 			      case 8: BS_EXMamil(); break;
+			      case 9: Dash_Feint(); break;
 		      }
 			Walk(15);
 		}
